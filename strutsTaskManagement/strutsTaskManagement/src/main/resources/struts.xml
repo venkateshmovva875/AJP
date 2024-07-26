@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="AddTaskAction" class="com.example.AddTaskAction"
+			method="post">
+			<result name="success">/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="UpdateTaskAction" class="com.example.UpdateTaskAction"
+			method="post">
+			<result name="success">/displayTasks.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="DeleteTaskAction" class="com.example.DeleteTaskAction"
+			method="post">
+			<result name="success">/displayTasks.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+	</package>
+</struts>

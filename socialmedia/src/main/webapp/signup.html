@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <style type="text/css">
+        body {
+            background-image: url('wp2044774.webp'); /* Add your background image URL here */
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Style for input fields */
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff5733;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e64b17;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="serv2" method="post" onsubmit="return validateForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="newusername" required>
+            <span id="usernameError" class="error"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="emailname" required>
+            <span id="emailError" class="error"></span>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="DOB" name="DOB" required>
+            <span id="dobError" class="error"></span>
+
+            <label for="phoneno">Phone Number:</label>
+            <input type="number" id="phoneno" name="phoneno" required>
+            <span id="phonenoError" class="error"></span>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="newpassword" required>
+            <span id="passwordError" class="error"></span>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function validateUsername(username) {
+            if (username.length < 5) {
+                alert("Username must be at least 5 characters long.");
+                return false;
+            }
+
+            if (username.indexOf(" ") !== -1) {
+                alert("Username cannot contain spaces.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePassword(password) {
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+
+            if (!/[a-zA-Z]+/.test(password)) {
+                alert("Password must contain at least one uppercase letter.");
+                return false;
+            }
+
+            if (!/[0-9]+/.test(password)) {
+                alert("Password must contain at least one number.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (validateUsername(username) && validatePassword(password)) {
+                return true;
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>

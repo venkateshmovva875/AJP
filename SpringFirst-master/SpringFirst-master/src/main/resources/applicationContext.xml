@@ -1,0 +1,19 @@
+<!-- applicationContext.xml -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define an Employee bean -->
+    <bean id="employee" class="com.example.demo.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="John"/>
+    </bean>
+
+    <!-- Define an EmployeeService bean -->
+    <bean id="employeeService" class="com.example.demo.EmployeeService">
+        <property name="employee" ref="employee"/>
+    </bean>
+
+</beans>
